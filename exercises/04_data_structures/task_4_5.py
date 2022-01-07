@@ -20,5 +20,14 @@
 проверять результат.
 """
 
+### from _typeshed import SupportsItemAccess
+###
+
 command1 = "switchport trunk allowed vlan 1,2,3,5,8"
 command2 = "switchport trunk allowed vlan 1,3,8,9"
+command1_split = command1.split()
+command2_split = command2.split()
+vlans1 = set(command1_split[-1].split(','))
+vlans2 = set(command2_split[-1].split(','))
+result = sorted(vlans1.intersection(vlans2))
+print(result)
