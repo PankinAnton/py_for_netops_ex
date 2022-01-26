@@ -14,5 +14,12 @@
 Это не значит, что задание сделано правильно, просто на данном этапе сложно иначе
 проверять результат.
 """
-
+mac_bin = "{:08b}{:08b}{:08b}"
 mac = "AAAA:BBBB:CCCC"
+mac_replace = mac.replace(":", "")
+mac_hex = hex(mac_replace)
+###mac_split = mac.split(":")
+print (mac_replace)
+print(mac_hex.format(mac_replace))
+###mac_bin = f'{mac:08b}'
+###print (mac_bin)

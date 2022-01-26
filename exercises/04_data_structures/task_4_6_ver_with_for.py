@@ -19,13 +19,11 @@ Outbound Interface    FastEthernet0/0
 
 ospf_route = "      10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0"
 ospf_route = ospf_route.replace('[', '').replace(']','').replace(',', '').split()
-print(ospf_route)
-result_template = """
-Prefix {ospf_route[0]}
-AD/Metric {ospf_route[1]}
-Next-Hop {ospf_route[3]}
-Last update {ospf_route[4]}
-Outbound Interface {ospf_route[5]}
-"""
-result = "{:<25}{}"
-print(result.format(result_template))
+ospf_split = ospf_route.remove('via')
+### print(ospf_route)
+
+list_keys = ['Prefix', 'AD/Metric', 'Next-Hop', 'Last update', 'Outbound Interface']
+result = {}
+for key, param in zip(list_keys, ospf_route):
+    print(f"{key:32} {param}")
+print (result)
